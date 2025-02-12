@@ -8,7 +8,7 @@ const BodyParser=require("body-parser");
 const FirmRoutes=require("./routes/FirmRoutes");
 const ProductRoutes=require("./routes/ProductRoutes");
 const path=require("path")//this path is inbulit module in nodejs
-const port="5000";
+const port=process.env.PORT || 5000;
 dotEnv.config();//access data from .env file
 mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URL)
 app.listen(port,()=>{
     console.log(`server running at ${port}`);
 })
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>welcome</h1>")
 })
 app.use(BodyParser.json())//to convert data coming VendorRoutes into json format
