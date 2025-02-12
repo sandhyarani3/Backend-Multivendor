@@ -18,12 +18,14 @@ mongoose.connect(process.env.MONGODB_URL)
 app.listen(port,()=>{
     console.log(`server running at ${port}`);
 })
-app.use('/',(req,res)=>{
-    res.send("<h1>welcome</h1>")
-})
+
 app.use(BodyParser.json())//to convert data coming VendorRoutes into json format
 //to create http request we use middleware i.e use()
 app.use("/vendor",VendorRouter);
 app.use("/firm",FirmRoutes);
 app.use("/product",ProductRoutes);
 app.use("/uploads",express.static("uploads"));//express.static("uploads")=>images saves in uploads
+
+app.use('/',(req,res)=>{
+    res.send("<h1>welcome</h1>")
+})
