@@ -11,7 +11,7 @@ const productSchema=new mongoose.Schema({
     category:{
         type:[{
             type:String,
-            enum:["Veg","Non-veg"]
+            enum:["veg","Non-veg"]
         }]
     },
     BestSeller:{
