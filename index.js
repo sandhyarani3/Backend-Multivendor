@@ -27,6 +27,6 @@ app.use("/firm",FirmRoutes);
 app.use("/product",ProductRoutes);
 app.use("/uploads",express.static("uploads"));//express.static("uploads")=>images saves in uploads
 
-app.use('*',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>welcome</h1>")
 })
